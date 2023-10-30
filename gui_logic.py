@@ -1,5 +1,5 @@
 from gui import Ui_Dialog
-from schedule_to_distribution import DateDialog
+from modal_dialog.schedule_to_distribution import DateDialog
 
 
 # КЛАСС АЛГОРИТМА ПРИЛОЖЕНИЯ
