@@ -1,33 +1,31 @@
-from PyQt5 import QtWidgets
-from label_antennas_field.label_antennas_field import LabelAntennasField
-from gui_modal import Ui_Dialog
-#
-#
-# class ScheduleToDistribution(Ui_Dialog):
-#
-#     def __init__(self, dialog):
-#         # Создаем окно
-#         Ui_Dialog.__init__(self)
-#         self.setupUi(dialog)  # Устанавливаем пользовательский интерфейс
-#
-#         # ПОЛЯ КЛАССА
-#
-#         # ДЕЙСТВИЯ ПРИ ВКЛЮЧЕНИИ
+from label_drawing_to_array.label_drawing_to_array import LabelDrawingToArray
+from gui_modal import Ui_dialog_convert_graphics_to_values
 
-from PyQt5.QtWidgets import (
-    QDialog, QVBoxLayout, QDateTimeEdit, QDialogButtonBox, QApplication)
-from PyQt5.QtCore import QDateTime, Qt
+from graph import Graph
+from drawer import Drawer
+
+from PyQt5.QtWidgets import (QDialog, QDialogButtonBox)
+from PyQt5.QtCore import Qt
 
 
-class DateDialog(QDialog, Ui_Dialog):
+# Класс модального окна
+class DateDialog(QDialog, Ui_dialog_convert_graphics_to_values):
     def __init__(self, parent=None):
+        # Создание окна и загрузка интерфейса
         super(DateDialog, self).__init__(parent)
         self.setupUi(self)
 
-        self.label_field_antennas = LabelAntennasField()
-        self.plotLayout.addWidget(self.label_field_antennas)
+        # Область рисования
+        self.label_field_antennas = LabelDrawingToArray()
+        self.layout_plot_1.addWidget(self.label_field_antennas)
 
-        # OK and Cancel buttons
+        # График для отображения / проверки перевода
+        self.graph = Graph(
+            layout=self.layout_plot_2,
+            widget=self.widget_plot_2
+        )
+
+        # Кнопки Ок и Отмена
         buttons = QDialogButtonBox(
             QDialogButtonBox.Ok | QDialogButtonBox.Cancel,
             Qt.Horizontal, self)
@@ -35,9 +33,24 @@ class DateDialog(QDialog, Ui_Dialog):
         buttons.rejected.connect(self.reject)
         self.layout_message_buttons.addWidget(buttons)
 
-    # static method to create the dialog and return (date, time, accepted)
+        # Сигналы
+        self.pushButton_preview.clicked.connect(self.preview)
+        self.pushButton_clear.clicked.connect(self.label_field_antennas.cleaning_and_mesh)
+
+    # Статичный метод для создания диалога и возврата результата
     @staticmethod
-    def getDateTime(parent=None):
+    def get_array(parent=None):
         dialog = DateDialog(parent)
         result = dialog.exec_()
-        return (5, 6, result == QDialog.Accepted)
+        coordinate_array = dialog.label_field_antennas.graph_in_distribution()
+        return coordinate_array, result == QDialog.Accepted
+
+    # Передпросмотр. Переводит рисунок в распределение и выводит в виде графика для проверки
+    def preview(self):
+        # Запрос распределения
+        coordinate_array = self.label_field_antennas.graph_in_distribution()
+        # Проверка на пустоту
+        if coordinate_array is None:
+            return
+        # Отрисовка
+        Drawer.graph(self.graph, coordinate_array)
