@@ -6,7 +6,7 @@
 <img src="https://img.shields.io/badge/Qt-41CD52?style=for-the-badge&logo=Qt&logoColor=white" height=24>
 </div>
 
-<h1 align="center"> Antenna Directive / Направленность Антенн </h1>
+<h1 align="center"> Converting a graph into a distribution / График в распределение </h1>
 
 Программа демонстрирует вызов модального окна с последующим возвратом значения.
 Во всплывающем окне реализован кастомный lable, на заднем фоне сетка, на переднем можно рисовать график.
@@ -20,10 +20,8 @@ lable имеет функцию перевода графика в массив.
 
 <h2 align="left"> Содержание </h2>
 
-1. [ Описание задачи и демонстрация работы ](https://github.com/SkorEgor/Antenna_Directivity_version2#-1-описание-задачи-и-демонстрация-работы-)
-2. [ Входные и выходные данные ](https://github.com/SkorEgor/Antenna_Directivity_version2#-2-входные-и-выходные-данные-)
-3. [ Описание логической структуры - Алгоритм программы ](https://github.com/SkorEgor/Antenna_Directivity_version2#-3-описание-логической-структуры---алгоритм-программы-)
-4. [ Структура программы - Классы и их описание](https://github.com/SkorEgor/Antenna_Directivity_version2#-4-структура-программы---классы-и-их-описание-)
+1. [ Описание задачи и демонстрация работы ](https://github.com/SkorEgor/Graph_in_distribution#-1-описание-задачи-и-демонстрация-работы-)
+2. [ Добавление в свой проект ](https://github.com/SkorEgor/Graph_in_distribution#-2-добавление-в-свой-проект-)
 
 <!---------------------------------------------------------------------------------->
 
@@ -41,7 +39,7 @@ lable имеет функцию перевода графика в массив.
 
 <div align="center">
 <!--- Демонстрация работы -->
-<img src="" >
+<img src="https://github.com/SkorEgor/Graph_in_distribution/assets/92719975/2c62b559-b09a-4a8e-a252-05a23f1c42c8" >
 </div>
 <!---------------------------------------------------------------------------------->
 
