@@ -36,10 +36,9 @@ lable имеет функцию перевода графика в массив.
    2. Для проверки - график
 4. Кнопки Ок и Cancel закрывают окно передавая статус
 
-
 <div align="center">
 <!--- Демонстрация работы -->
-<img src="https://github.com/SkorEgor/Graph_in_distribution/assets/92719975/2c62b559-b09a-4a8e-a252-05a23f1c42c8" >
+<img src="https://github.com/SkorEgor/Graph_in_distribution/assets/92719975/dc396bc8-28e4-4ee3-86f1-6af50832de00" >
 </div>
 <!---------------------------------------------------------------------------------->
 
